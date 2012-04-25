@@ -7,6 +7,6 @@
    {modules, [bcmvc_models_app,
               bcmvc_models_sup]},
    {registered,[bcmvc_models_sup]},
-   {applications, [kernel, stdlib, ossp_uuid, jiffy]},
+   {applications, [kernel, stdlib, ossp_uuid, jiffy, bcmvc_db]},
    {mod, {bcmvc_models_app,[]}},
    {start_phases, []}]}.

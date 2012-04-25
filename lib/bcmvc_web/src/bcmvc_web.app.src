@@ -7,6 +7,6 @@
    {modules, [bcmvc_web_app,
               bcmvc_web_sup]},
    {registered,[bcmvc_web_sup]},
-   {applications, [kernel, stdlib, cowboy]},
+   {applications, [kernel, stdlib, cowboy, bcmvc_models]},
    {mod, {bcmvc_web_app,[]}},
    {start_phases, []}]}.
