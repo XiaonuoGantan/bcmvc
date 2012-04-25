@@ -1,0 +1,1 @@
+-compile({parse_transform, bcmvc_model_transform}).

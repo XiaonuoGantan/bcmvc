@@ -1,0 +1,12 @@
+%%% -*- mode:erlang -*-
+%% This is the application resource file (.app file) for the,
+%% application.
+{application, bcmvc_db,
+  [{description, "Batman Cowboy MVC database interface"},
+   {vsn, "0.1.0"},
+   {modules, [bcmvc_db_app,
+              bcmvc_db_sup]},
+   {registered,[bcmvc_db_sup]},
+   {applications, [kernel, stdlib, mnesia]},
+   {mod, {bcmvc_db_app,[]}},
+   {start_phases, []}]}.

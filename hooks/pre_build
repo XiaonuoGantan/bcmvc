@@ -1,0 +1,3 @@
+#!/bin/bash
+
+#coffee -b -o lib/bcmvc_web/priv/js/ -c lib/bcmvc_web/priv/coffee/
