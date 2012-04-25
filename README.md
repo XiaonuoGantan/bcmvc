@@ -2,14 +2,14 @@
 
 ### Dependencies
 
-| Applicatoin |          Version |
-|-------------+------------------|
-| proper      |              1.0 |
-| eunit       |            2.2.2 |
-| mnesia      |              4.6 |
-| jiffy       | 0.4.1-2.g64d0e65 |
-| ossp_uuid   |                1 |
-| cowboy      |            0.5.0 |
+Application |          Version 
+----------- | -----------------
+proper      |              1.0 
+eunit       |            2.2.2 
+mnesia      |              4.6 
+jiffy       | 0.4.1-2.g64d0e65 
+ossp_uuid   |                1 
+cowboy      |            0.5.0 
 
 ### Nginx Setup
 
