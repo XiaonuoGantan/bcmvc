@@ -6,5 +6,6 @@
    {vsn, "0.1.0"},
    {modules, [bcmvc_models_app,
               bcmvc_models_sup]},
+   {registered,[]},
    {applications, [kernel, stdlib, ossp_uuid, jiffy, bcmvc_db]},
    {start_phases, []}]}.

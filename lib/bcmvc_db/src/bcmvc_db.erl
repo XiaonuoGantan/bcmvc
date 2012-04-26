@@ -40,19 +40,11 @@ all_keys(Tab) ->
             {error, Reason}
     end.
 
+%% Just RAM copies
 create_table(Name, Fields) ->
-    mnesia:create_table(Name, [{disc_copies, [node()]}, {attributes, Fields}]).
+    mnesia:create_table(Name, [{attributes, Fields}]).
 
-% store(Record) when not(is_list(Record))->
-%     store([Record]);
-% store(Records) when is_list(Records)->
-%     case mnesia:transaction(?FUN(lists:foreach(?FUN1(mnesia:write(X)), Records))) of
-%         {atomic, ok} ->
-%             ok;
-%         _ ->
-%             error
-%     end.
-
+%% Unique only
 store(Record) when not(is_list(Record))->
     store([Record]);
 store(Records) when is_list(Records)->

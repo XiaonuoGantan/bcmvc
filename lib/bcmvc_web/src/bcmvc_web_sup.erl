@@ -38,15 +38,14 @@ init([]) ->
 
     SupFlags = {RestartStrategy, MaxRestarts, MaxSecondsBetweenRestarts},
 
+    Dispatch = [{'_', [{[<<"todos">>], bcmvc_todo_handler, []},
+                       {[<<"todos">>, todo], bcmvc_todo_handler, []}]}],
+
     ChildSpec = cowboy:child_spec(bcmvc_cowboy, 100, cowboy_tcp_transport, 
-                                  [{port, 8080}], cowboy_http_protocol, [{dispatch, dispatch()}]),
+                                  [{port, 8080}], cowboy_http_protocol, [{dispatch, Dispatch}]),
 
     {ok, {SupFlags, [ChildSpec]}}.
 
 %%%===================================================================
 %%% Internal functions
 %%%===================================================================
-
-dispatch() ->
-    [{'_', [{[<<"todos">>], bcmvc_todo_handler, []},
-            {[<<"todos">>, todo], bcmvc_todo_handler, []}]}].

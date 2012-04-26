@@ -8,7 +8,11 @@
 %%%-------------------------------------------------------------------
 -module(bcmvc_model_utils).
 
--export([to_ex_a/1]).
+-export([create_tables/0,
+         to_ex_a/1]).
+
+create_tables() ->
+    [bcmvc_db:create_table(Model, Model:fields()) || Model <- [bcmvc_model_todo]].
 
 to_ex_a(A) when is_atom(A) -> A;
 to_ex_a(B) when is_binary(B) ->
