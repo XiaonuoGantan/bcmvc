@@ -23,10 +23,8 @@ content_types_provided(Req, State) ->
 
 process_post(Req, State) ->
     {ok, Body, Req1} = cowboy_http_req:body(Req),
-    Todo = bcmvc_web_utils:qs_to_proplist(Body),   
-    TodoModel = bcmvc_model_todo:new(Todo),
-    bcmvc_model_todo:save(TodoModel),
-
+    Todo = bcmvc_model_todo:to_record(Body),
+    bcmvc_model_todo:save(Todo),
     {true, Req1, State}.
 
 delete_resource(Req, State) ->
@@ -39,9 +37,7 @@ put_json(Req, State) ->
     {TodoId, Req2} = cowboy_http_req:binding(todo, Req1),
 
     Todo = bcmvc_model_todo:to_record(Body),
-    Todo2 = bcmvc_model_todo:set(Todo, id, TodoId),
-    io:format("Model ~p~n", [Todo2]),
-
+    Todo2 = bcmvc_model_todo:set([{id, TodoId}], Todo),
     bcmvc_model_todo:update(Todo2),
     
     {true, Req2, State}.
