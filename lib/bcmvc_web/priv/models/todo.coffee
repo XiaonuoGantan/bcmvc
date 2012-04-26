@@ -1,8 +1,7 @@
-# Define the principle Todo model with `body` and `isDone` attributes, and tell it to persist itself using Local Storage.
 class TodoMVC.Todo extends Batman.Model
-  @global yes # global exposes this class on the global object, so you can access `Todo` directly.
+  @global yes
 
-  @persist Batman.RestStorage # Batman.LocalStorage
+  @persist Batman.RestStorage
   @encode 'body', 'isDone'
 
   body: ''

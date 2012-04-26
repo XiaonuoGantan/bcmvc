@@ -4,7 +4,7 @@ class TodoMVC extends Batman.App
   @root 'todos#index'
 
   @model 'todo'
-  @resources 'todos'
+  @controller 'todos'
 
 # Start the app
 TodoMVC.run()
