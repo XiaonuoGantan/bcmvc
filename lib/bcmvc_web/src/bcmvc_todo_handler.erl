@@ -25,7 +25,12 @@ process_post(Req, State) ->
     {ok, Body, Req1} = cowboy_http_req:body(Req),
     Todo = bcmvc_model_todo:to_record(Body),
     bcmvc_model_todo:save(Todo),
-    {true, Req1, State}.
+
+    NewId = bcmvc_model_todo:get(id, Todo),
+    {ok, Req2} = cowboy_http_req:set_resp_header(
+                   <<"Location">>, <<"/todos/", NewId/binary>>, Req1),
+
+    {true, Req2, State}.
 
 delete_resource(Req, State) ->
     {TodoId, Req1} = cowboy_http_req:binding(todo, Req),

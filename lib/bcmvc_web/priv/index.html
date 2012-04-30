@@ -30,7 +30,7 @@
 			      data-event-doubleclick="controllers.todos.edit"
 			      data-addclass-completed="todo.isDone">
 			    <div class="view">
-			      <input class="toggle" type="checkbox" data-bind="todo.isDone" data-event-click="todo.save"/>
+			      <input class="toggle" type="checkbox" data-bind="todo.isDone" data-event-change="todo.save"/>
 			      <label data-bind="todo.body"></label>
 			      <button class="destroy" data-event-click="todo.destroy"></button>
 			    </div>
@@ -42,7 +42,7 @@
 		<!-- This footer should hidden by default and shown when there are todos -->
 		<footer id="footer">
 			<!-- This should be `0 items left` by default -->
-			<span id="todo-count"><strong data-bind="Todo.left.length"></strong> items left</span>
+			<span id="todo-count"><strong data-bind="Todo.all.length"></strong> items left</span>
 			<!-- Remove this if you don't implement routing -->
 			<ul id="filters">
 				<li>
@@ -56,7 +56,7 @@
 				</li>
 			</ul>
 			<button id="clear-completed">Clear completed
-			(<span data-bind="Todo.done.length"></span>)</button>
+			(<span data-bind="Todo.done"></span>)</button>
 		</footer>
 	</section>
 	<footer id="info">

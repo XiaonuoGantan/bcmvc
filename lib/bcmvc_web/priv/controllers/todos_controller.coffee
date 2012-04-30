@@ -15,4 +15,4 @@ class TodoMVC.TodosController extends Batman.Controller
 
   create: =>
     @emptyTodo.save (error, record)  =>
-       @set 'emptyTodo', new TodoMVC.Todo()
+       @set 'emptyTodo', new TodoMVC
